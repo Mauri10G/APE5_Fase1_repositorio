@@ -1,0 +1,64 @@
+/* Mobile-First: la base es una sola columna pensada para 360 px */
+:root {
+  --texto: #303638;
+  --borde: #758084;
+  --acento: #1f5f8b;
+  --fondo-estado: #eef4f8;
+  --ok: #1d6b3a;
+  --aviso: #8a4b08;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 1rem;
+  font: 1.125rem/1.6 system-ui, sans-serif;
+  color: var(--texto);
+}
+
+.cabecera, .tarjeta {
+  padding: 1rem;
+  border: 2px solid var(--borde);
+  border-radius: 8px;
+}
+
+.cabecera { margin-bottom: 1rem; }
+.marca { margin: 0; font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; }
+h1 { margin: 0.25rem 0 0; font-size: 1.6rem; }
+h2 { margin: 0 0 0.5rem; font-size: 1.3rem; }
+
+.contenido { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+
+.datos { margin: 0 0 1rem; }
+.datos div { display: flex; gap: 0.5rem; }
+.datos dt { font-weight: 700; min-width: 5rem; }
+.datos dd { margin: 0; }
+
+.acciones { display: flex; flex-direction: column; gap: 0.75rem; }
+
+button {
+  font: inherit;
+  min-height: 2.75rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--acento);
+  border-radius: 6px;
+  background: var(--acento);
+  color: #fff;
+  cursor: pointer;
+}
+button.secundario { background: #fff; color: var(--acento); }
+button:disabled { opacity: 0.55; cursor: not-allowed; }
+button:focus-visible { outline: 3px solid #ffbf47; outline-offset: 2px; }
+
+.estado .tarjeta { background: var(--fondo-estado); }
+#mensaje { margin: 0; font-weight: 600; }
+#mensaje.confirmada { color: var(--ok); }
+#mensaje.cancelada { color: var(--aviso); }
+
+/* Escritorio y tablet: dos columnas desde 48rem (768 px), mismo orden del HTML */
+@media (min-width: 48rem) {
+  body { max-width: 60rem; margin: 2.5rem auto; padding: 0 1rem; }
+  .contenido { grid-template-columns: 1.6fr 1fr; align-items: start; }
+  .acciones { flex-direction: row; }
+}
