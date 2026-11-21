@@ -54,7 +54,18 @@ button:focus-visible { outline: 3px solid #ffbf47; outline-offset: 2px; }
 .estado .tarjeta { background: var(--fondo-estado); }
 #mensaje { margin: 0; font-weight: 600; }
 #mensaje.confirmada { color: var(--ok); }
-#mensaje.cancelada { color: var(--aviso); }
+#mensaje.cancelada, #mensaje.aviso { color: var(--aviso); }
+
+/* Confirmación antes de cancelar */
+[hidden] { display: none !important; }
+.confirmacion {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border: 2px solid var(--aviso);
+  border-radius: 6px;
+  background: #fff7ec;
+}
+.confirmacion p { margin: 0 0 0.75rem; font-weight: 600; }
 
 /* Escritorio y tablet: dos columnas desde 48rem (768 px), mismo orden del HTML */
 @media (min-width: 48rem) {
